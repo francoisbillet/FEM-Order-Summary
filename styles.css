@@ -63,11 +63,18 @@ h6 {
   overflow-wrap: break-word;
 }
 
+/* Utility Classes */
+
+.pointer {
+  cursor: pointer;
+}
+
 /* CSS File */
 
 :root {
   --clr-primary-100: hsla(225, 100%, 94%, 30%);
   --clr-primary-200: hsl(225, 100%, 94%);
+  --clr-primary-300: hsl(245, 75%, 65%);
   --clr-primary-500: hsl(245, 75%, 52%);
 
   --clr-neutral-100: hsl(225, 100%, 98%);
@@ -84,7 +91,8 @@ body {
   font-size: 1rem;
   font-weight: var(--fw-medium);
   color: var(--clr-neutral-500);
-  background: no-repeat url(images/pattern-background-mobile.svg), var(--clr-primary-200);
+  background: no-repeat url(images/pattern-background-mobile.svg),
+    var(--clr-primary-200);
 }
 
 .order {
@@ -92,10 +100,18 @@ body {
   background-color: var(--clr-neutral-100);
   border-radius: 1.5rem;
   overflow: hidden;
+  max-width: 450px;
+}
+
+@media (min-width: 450px) {
+  body {
+    display: grid;
+    place-content: center;
+  }
 }
 
 .order__content {
-  padding: 2rem ;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,15 +132,59 @@ body {
   padding: 1rem;
   background-color: var(--clr-primary-100);
   width: 100%;
+  border-radius: 1rem;
 }
 
-.order__entry::before {
+.order__details {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.order__details::before {
   content: url("images/icon-music.svg");
   height: 48px;
   width: 48px;
 }
 
-.order__details {
+.order__info {
   display: flex;
   flex-direction: column;
+}
+
+.order__entry__name {
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-extra-bold);
+}
+
+.order__modify {
+  color: var(--clr-primary-500);
+  font-weight: var(--fw-extra-bold);
+}
+
+.order__modify:hover {
+  color: var(--clr-primary-300);
+  text-decoration: none;
+}
+
+.btn {
+  width: 100%;
+  border: 0;
+  border-radius: 0.75rem;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-500);
+  padding: 0.625rem;
+  font-weight: var(--fw-extra-bold);
+}
+
+.btn:hover {
+  background-color: var(--clr-primary-300);
+}
+
+.order__cancel {
+  color: var(--clr-neutral-500);
+  font-weight: var(--fw-extra-bold);
+}
+
+.order__cancel:hover {
+  color: var(--clr-neutral-900);
 }
